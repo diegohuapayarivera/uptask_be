@@ -43,8 +43,9 @@ export class ProjectController {
         const error = new Error("Proyecto no encontrado");
         return res.status(404).json({ error: error.message });
       }
-      project.clientName = req.body.clienName
+      console.log(req.body)
       project.projectName = req.body.projectName
+      project.clientName = req.body.clientName
       project.description = req.body.description
       await project.save();
       res.send("Proyecto actualizado");

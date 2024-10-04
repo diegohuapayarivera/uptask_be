@@ -4,16 +4,21 @@ import cors from "cors";
 import { connectDB } from "./config/db";
 import projectRoutes from "./routes/projectRoutes";
 import { conrsConfig } from "./config/cors";
+import morgan from "morgan";
 
-dotenv.config()
+dotenv.config();
 
-connectDB()
-const app = express();  
+connectDB();
+const app = express();
 
-app.use(cors(conrsConfig) )
+app.use(cors(conrsConfig));
 
+// Login
+app.use(morgan("dev"));
+
+// leer datos del formulario
 app.use(express.json());
 // Routes
-app.use("/api/projects", projectRoutes)
+app.use("/api/projects", projectRoutes);
 
 export default app;
