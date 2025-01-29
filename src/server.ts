@@ -19,6 +19,7 @@ app.use(morgan("dev"));
 // leer datos del formulario
 app.use(express.json());
 // Routes
+app.use("/api/auth", projectRoutes);
 app.use("/api/projects", projectRoutes);
 
 export default app;
